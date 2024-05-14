@@ -1,0 +1,2 @@
+# sysops
+Varias tareas sysadmin
