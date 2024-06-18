@@ -1,0 +1,29 @@
+# Virtualbox 7.0.18 > Fedora40
+sudo dnf install @development-tools
+sudo dnf install kernel-headers kernel-devel dkms
+sudo vi /etc/yum.repos.d/virtualbox.repo
+#copy/paste
+[virtualbox]
+name=Fedora $releasever - $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox_2016.asc
+#fin
+sudo dnf update
+sudo dnf install VirtualBox-7.0
+vboxmanage -v | cut -dr -f1 #Muestra la versión(7.0.18)
+#VirtualBox Ex.Pack
+wget https://download.virtualbox.org/virtualbox/7.0.18/Oracle_VM_VirtualBox_Extension_Pack-7.0.18.vbox-extpack
+sudo vboxmanage extpack install Oracle_VM_VirtualBox_Extension_Pack-7.0.18.vbox-extpack
+vboxmanage list extpacks #Muestra la versión Ex.Pack(7.0.18)
+#Agregar usuario
+sudo usermod -a -G vboxusers $USER
+groups $USER #Comprobar usario en grupo vboxusers
+#Desinstalación
+sudo dnf remove VirtualBox-7.0
+#Desactivar repositorio
+sudo dnf config-manager --set-disabled virtualbox
+#Eliminar repositorio
+sudo rm /etc/yum.repos.d/virtualbox.repo
