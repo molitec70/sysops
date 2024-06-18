@@ -28,3 +28,4 @@ sudo dnf remove VirtualBox-7.0
 sudo dnf config-manager --set-disabled virtualbox
 #Eliminar repositorio
 sudo rm /etc/yum.repos.d/virtualbox.repo
+# Prueba PR
