@@ -23,6 +23,7 @@ sudo usermod -a -G vboxusers $USER
 groups $USER #Comprobar usario en grupo vboxusers
 #Desinstalación
 sudo dnf remove VirtualBox-7.0
+# Prueba pr
 #Desactivar repositorio
 sudo dnf config-manager --set-disabled virtualbox
 #Eliminar repositorio
